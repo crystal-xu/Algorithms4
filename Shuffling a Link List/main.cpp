@@ -15,6 +15,7 @@ struct Node
     Node *next;
 };
 
+// Remember to use reference to pointer, since the pointer itselft is changed inside the function
 void Merge(Node *&lhead, Node *&rhead)
 {
     if( lhead == NULL || rhead == NULL )
