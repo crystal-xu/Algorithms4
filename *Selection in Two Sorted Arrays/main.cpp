@@ -9,6 +9,7 @@
 #include <iostream>
 #include <vector>
 
+// https://www.geeksforgeeks.org/k-th-element-two-sorted-arrays/
 int findKthSmallest(std::vector<int> &A, int start1, int end1, std::vector<int> &B, int start2, int end2, int k)
 {
     int mid1 = start1+(end1-start1)/2;
@@ -31,6 +32,28 @@ int findKthSmallest(std::vector<int> &A, int start1, int end1, std::vector<int> 
         else
             return findKthSmallest(A, start1, mid1-1, B, start2, end2, k);
     }
+}
+
+// https://articles.leetcode.com/find-k-th-smallest-element-in-union-of/
+int findKthSmallest2(std::vector<int> &A, int start1, int end1, std::vector<int> &B, int start2, int end2, int k)
+{
+    int len1 = end1 - start1;
+    int len2 = end2 - start2;
+    int i = start1 + (int)(double)(len1/(len1+len2)*(k-1));
+    int j = start2 + k - 1 - i;
+    
+    int Ai = i == end1 ? INT_MAX:A[i];
+    int Bj = j == end2 ? INT_MAX:B[j];
+    int Ai1 = i == 0 ? INT_MIN:A[i-1];
+    int Bj1 = j == 0? INT_MIN:B[j-1];
+    if( Ai < Bj && Ai > Bj1 )
+        return Ai;
+    else if( Bj < Ai && Bj > Ai1 )
+        return Bj;
+    if( Ai < Bj )
+        return findKthSmallest(A, i+1, end1, B, start2, j, k);
+    else
+        return findKthSmallest(A, start1, i, B, j+1, end2, k);
 }
 
 int findKthSmallest(std::vector<int> &A, std::vector<int> &B, int k)
