@@ -1,0 +1,4 @@
+Design a data type that supports insert in logarithmic time, find-the-median in constant time, and remove-the-median in logarithmic time.
+Note: these interview questions are ungraded and purely for your own enrichment. To get a hint, submit a solution.
+
+https://stackoverflow.com/questions/10657503/find-running-median-from-a-stream-of-integers
