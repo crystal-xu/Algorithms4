@@ -1,0 +1,3 @@
+ Given a binary tree where each 𝙽𝚘𝚍𝚎 contains a key, determine whether it is a binary search tree. Use extra space proportional to the height of the tree.
+ 
+ https://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/
